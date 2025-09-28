@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAC: Adaptive Learning Rate Scaling with Architectural Constraints</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="hero">
+    <div class="hero__overlay"></div>
+    <nav class="top-nav">
+        <div class="logo">ScalingOpt</div>
+        <ul class="nav-links">
+            <li><a href="#overview" aria-label="Go to Overview section">Overview</a></li>
+            <li><a href="#insights" aria-label="Go to Highlights section">Highlights</a></li>
+            <li><a href="#architecture" aria-label="Go to Methodology section">Methodology</a></li>
+            <li><a href="#results" aria-label="Go to Results section">Results</a></li>
+            <li><a href="#resources" aria-label="Go to Resources section">Resources</a></li>
+        </ul>
+    </nav>
+    <div class="hero__content">
+        <h1>SAC: Adaptive Learning Rate <span class="sac-highlight"><u>S</u>caling with <u>A</u>rchitectural <u>C</u>onstraints</span></h1>
+        <p>
+            A comprehensive overview of SAC &mdash; a principled strategy for scaling optimizers
+            in large language models by aligning learning dynamics with architectural priors.
+        </p>
+        <a class="cta" href="#overview">Explore the Project</a>
+
+        <div class="hero__meta">
+            <div class="authors-card">
+                <h2>Authors</h2>
+                <div class="authors-grid">
+                    <div class="author-item">
+                        <a href="https://lupin1998.github.io" target="_blank" rel="noopener" class="author-link">
+                            <span class="author-name first-author"><strong>Siyuan Li*</strong></span>
+                        </a>
+                        <span class="author-affiliation">Westlake University & Zhejiang University</span>
+                    </div>
+                    <div class="author-item">
+                        <a href="https://tianshijing.github.io" target="_blank" rel="noopener" class="author-link">
+                            <span class="author-name first-author"><strong>Juanxi Tian*</strong></span>
+                        </a>
+                        <span class="author-affiliation">Shanghai AI Laboratory & CUHK(Shenzhen)</span>
+                    </div>
+                    <div class="author-item">
+                        <a href="https://jacky1128.github.io" target="_blank" rel="noopener" class="author-link">
+                            <span class="author-name">Zedong Wang</span>
+                        </a>
+                        <span class="author-affiliation">HKUST</span>
+                    </div>
+                    <div class="author-item">
+                        <a href="" target="_blank" rel="noopener" class="author-link">
+                            <span class="author-name">Anna Wang</span>
+                        </a>
+                        <span class="author-affiliation">Westlake University</span>
+                    </div>
+                    <div class="author-item">
+                        <a href="https://jinxins.github.io" target="_blank" rel="noopener" class="author-link">
+                            <span class="author-name">Xin Jin</span>
+                        </a>
+                        <span class="author-affiliation">Westlake University</span>
+                    </div>
+                    <div class="author-item">
+                        <a href="" target="_blank" rel="noopener" class="author-link">
+                            <span class="author-name">Chang Yu</span>
+                        </a>
+                        <span class="author-affiliation">Westlake University</span>
+                    </div>
+                    <div class="author-item">
+                        <a href="https://ruoyus.github.io" target="_blank" rel="noopener" class="author-link">
+                            <span class="author-name">Ruoyu Sun†</span>
+                        </a>
+                        <span class="author-affiliation">CUHK(Shenzhen)</span>
+                    </div>
+                    <div class="author-item">
+                        <a href="https://chengtan9907.github.io" target="_blank" rel="noopener" class="author-link">
+                            <span class="author-name">Cheng Tan†</span>
+                        </a>
+                        <span class="author-affiliation">Shanghai AI Laboratory</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section id="resources" class="section section--marine">
+        <div class="section__header">
+            <h2>Resources</h2>
+            <p>Explore the primary publication and supporting materials.</p>
+        </div>
+        <div class="resources">
+            <a class="resource-card" href="SAC_paper.pdf" target="_blank" rel="noopener">
+                <h3>📄 Read the Paper</h3>
+                <p>Download the full SAC paper (PDF).</p>
+            </a>
+            <a class="resource-card" href="https://arxiv.org/abs/2304.xxxxx" target="_blank" rel="noopener">
+                <h3>📚 arXiv Preprint</h3>
+                <p>Access the latest version on arXiv.</p>
+            </a>
+            <a class="resource-card" href="https://github.com/sac-optimizer/sac" target="_blank" rel="noopener">
+                <h3>💻 GitHub Repository</h3>
+                <p>Explore the code and implementation.</p>
+            </a>
+            <a class="resource-card" href="https://huggingface.co/sac-optimizer" target="_blank" rel="noopener">
+                <h3>🤗 Hugging Face Models</h3>
+                <p>Pre-trained models and examples.</p>
+            </a>
+        </div>
+        
+        <div class="social-links">
+            <h3>Quick Access</h3>
+            <div class="platform-icons">
+                <a href="https://arxiv.org/abs/2304.xxxxx" target="_blank" rel="noopener" class="platform-icon arxiv-icon" aria-label="View on arXiv">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+                        <path d="M18.625 5.375h-6.5l-1.5 3h-1.5l-1.5-3h-6.5v13.25h17.5v-13.25zm-8.75 10.5h-3.25v-1.5h3.25v1.5zm0-2.5h-3.25v-1.5h3.25v1.5zm6.5 2.5h-5.25v-1.5h5.25v1.5zm0-2.5h-5.25v-1.5h5.25v1.5z"/>
+                    </svg>
+                    <span>arXiv</span>
+                </a>
+                <a href="https://github.com/sac-optimizer/sac" target="_blank" rel="noopener" class="platform-icon github-icon" aria-label="View on GitHub">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+                        <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://huggingface.co/sac-optimizer" target="_blank" rel="noopener" class="platform-icon hf-icon" aria-label="View on Hugging Face">
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span>🤗 HF</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="overview" class="section">
+        <div class="section__header">
+            <h2>Project Overview</h2>
+            <p>
+                SAC (Structural Adaptive Control) introduces architecture-aware learning rate scaling
+                that improves convergence stability for modern transformer-based language models.
+            </p>
+        </div>
+        <div class="grid grid--2">
+            <article class="card">
+                <h3>Motivation</h3>
+                <p>
+                    Traditional scaling laws overlook how architectural depth, width, and parameter tying
+                    interact with optimization hyperparameters. SAC bridges this gap by injecting
+                    architectural constraints directly into the optimizer&rsquo;s adaptation strategy.
+                </p>
+            </article>
+            <article class="card">
+                <h3>Key Idea</h3>
+                <p>
+                    SAC modulates the learning rate and momentum buffers layer-wise, guided by
+                    curvature proxies derived from attention connectivity and feed-forward expressivity.
+                    This produces smoother loss trajectories and better generalization under compute limits.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section id="insights" class="section section--accent">
+        <div class="section__header">
+            <h2>Highlights</h2>
+            <p>Design principles that enable SAC to scale with model size while maintaining stability.</p>
+        </div>
+        <div class="grid grid--3">
+            <article class="highlight">
+                <h3>Architecture-Aware Schedules</h3>
+                <p>
+                    Adaptive scaling coefficients incorporate depth-normalization and residual path
+                    sensitivity, enabling consistent training across diverse transformer sizes.
+                </p>
+            </article>
+            <article class="highlight">
+                <h3>Constraint-Driven Optimization</h3>
+                <p>
+                    Stability constraints, such as Lipschitz bounds on attention maps, guide the optimizer
+                    updates to prevent gradient explosion in deeper blocks.
+                </p>
+            </article>
+            <article class="highlight">
+                <h3>Compute-Efficient Convergence</h3>
+                <p>
+                    SAC achieves faster loss reduction within fixed compute budgets, improving
+                    wall-clock efficiency without sacrificing downstream performance.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section id="architecture" class="section">
+        <div class="section__header">
+            <h2>Methodology &amp; Architecture</h2>
+            <p>
+                The pipeline integrates architectural analysis, optimizer calibration, and constraint-aware
+                scaling to deliver robust training dynamics.
+            </p>
+        </div>
+        <div class="pipeline">
+            <div class="pipeline__step">
+                <span class="step-number">1</span>
+                <h3>Architectural Profiling</h3>
+                <p>
+                    Layer statistics, including attention fan-in and MLP expansion ratios, are collected to
+                    quantify structural sensitivity scores.
+                </p>
+            </div>
+            <div class="pipeline__step">
+                <span class="step-number">2</span>
+                <h3>Constraint Formulation</h3>
+                <p>
+                    Constraints derived from the profiles set allowable ranges for gradient norms and
+                    adaptive learning factors for each block.
+                </p>
+            </div>
+            <div class="pipeline__step">
+                <span class="step-number">3</span>
+                <h3>Adaptive Scaling</h3>
+                <p>
+                    Layer-wise learning rates are scaled using a closed-form estimator that respects the
+                    constraint boundaries to maintain stability.
+                </p>
+            </div>
+            <div class="pipeline__step">
+                <span class="step-number">4</span>
+                <h3>Monitoring &amp; Feedback</h3>
+                <p>
+                    Training telemetry feeds back into the estimator to refine scaling coefficients during
+                    the optimization horizon.
+                </p>
+            </div>
+        </div>
+
+        <figure class="figure">
+            <img src="sac_pipeline.jpg" alt="SAC optimization pipeline diagram" />
+            <figcaption>Figure 1. SAC training pipeline with architecture-informed feedback loops.</figcaption>
+        </figure>
+    </section>
+
+    <section class="section section--marine">
+        <div class="grid grid--2">
+            <figure class="figure">
+                <img src="modern_llm_opt.jpg" alt="Modern LLM optimization landscape" />
+                <figcaption>Figure 2. Positioning SAC among modern LLM optimization strategies.</figcaption>
+            </figure>
+            <div class="text-block">
+                <h2>Optimizer Design Plane</h2>
+                <p>
+                    SAC operates at the intersection of architecture-aware scaling, optimizer state reuse,
+                    and compute-efficient scheduling. By balancing these objectives, SAC delivers more
+                    reliable convergence curves across a wide range of parameter counts.
+                </p>
+                <p>
+                    The method adapts to both pre-training and fine-tuning regimes, aligning gradient flow
+                    with structural priors such as attention locality and residual gating.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="results" class="section">
+        <div class="section__header">
+            <h2>Experimental Highlights</h2>
+            <p>Representative results comparing SAC with common adaptive optimizers.</p>
+        </div>
+        <div class="results">
+            <div class="results-table-container">
+                <h3>Optimizer Performance Comparison</h3>
+                <table aria-label="Optimizer comparison table">
+                    <thead>
+                    <tr>
+                        <th>Model Scale</th>
+                        <th>Baseline Optimizer</th>
+                        <th>Loss Improvement</th>
+                        <th>Perplexity Improvement</th>
+                        <th>Compute Savings</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1.3B parameters</td>
+                        <td>AdamW</td>
+                        <td class="improvement-cell">↓ 8.5%</td>
+                        <td class="improvement-cell">↓ 6.2%</td>
+                        <td class="compute-cell">1.15× faster</td>
+                    </tr>
+                    <tr>
+                        <td>7B parameters</td>
+                        <td>Adafactor</td>
+                        <td class="improvement-cell">↓ 10.4%</td>
+                        <td class="improvement-cell">↓ 7.8%</td>
+                        <td class="compute-cell">1.22× faster</td>
+                    </tr>
+                    <tr>
+                        <td>13B parameters</td>
+                        <td>Shampoo</td>
+                        <td class="improvement-cell">↓ 12.1%</td>
+                        <td class="improvement-cell">↓ 9.5%</td>
+                        <td class="compute-cell">1.31× faster</td>
+                    </tr>
+                    <tr>
+                        <td>65B parameters</td>
+                        <td>Muon</td>
+                        <td class="improvement-cell">↓ 9.7%</td>
+                        <td class="improvement-cell">↓ 8.9%</td>
+                        <td class="compute-cell">1.18× faster</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <aside class="note">
+                    <h4>Key Insights</h4>
+                    <p>
+                        SAC consistently outperforms baseline adaptive optimizers by injecting architectural
+                        priors into the scaling schedule. The improvements are especially pronounced for
+                        mid-sized transformer models where depth-to-width ratios amplify gradient instabilities.
+                    </p>
+                </aside>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <h3>Ablation Study: Constraint Weight Sensitivity</h3>
+            <div class="table-scroll">
+                <table aria-label="Constraint weight ablation table">
+                    <thead>
+                    <tr>
+                        <th>Constraint Weight</th>
+                        <th>Stability Index <span style="font-weight: 400;">(↑ better)</span></th>
+                        <th>Validation Loss</th>
+                        <th>Tokens to Converge (B)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>0.0 <em>(No Constraints)</em></td>
+                        <td>0.62</td>
+                        <td>2.41</td>
+                        <td>310</td>
+                    </tr>
+                    <tr>
+                        <td>0.2</td>
+                        <td class="improvement-cell">0.78</td>
+                        <td class="improvement-cell">2.18</td>
+                        <td class="improvement-cell">268</td>
+                    </tr>
+                    <tr>
+                        <td>0.4</td>
+                        <td class="improvement-cell">0.84</td>
+                        <td class="improvement-cell">2.05</td>
+                        <td class="improvement-cell">241</td>
+                    </tr>
+                    <tr style="background: rgba(96, 165, 250, 0.1); font-weight: 600;">
+                        <td>0.6 <em>(Optimal)</em></td>
+                        <td class="improvement-cell">0.86</td>
+                        <td class="improvement-cell">2.02</td>
+                        <td class="improvement-cell">236</td>
+                    </tr>
+                    <tr>
+                        <td>0.8</td>
+                        <td>0.85</td>
+                        <td>2.07</td>
+                        <td>244</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-note">
+                <strong>Note:</strong> Stability index measures gradient variance regularity across depth-normalized layers. 
+                The optimal constraint weight (0.6) provides the best balance between stability and convergence speed.
+            </p>
+        </div>
+
+        <div class="gallery">
+            <figure>
+                <img src="sac.jpg" alt="SAC concept illustration" />
+                <figcaption>Conceptual overview of SAC&rsquo;s adaptive scaling mechanism.</figcaption>
+            </figure>
+            <figure>
+                <img src="sac_config.jpg" alt="Configuration space visualization" />
+                <figcaption>Configuration space showing SAC&rsquo;s constraint-aware adaptation.</figcaption>
+            </figure>
+            <figure>
+                <img src="optimizer_design_plane.jpg" alt="Optimizer design plane chart" />
+                <figcaption>Design plane highlighting SAC&rsquo;s balance between speed and stability.</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="section section--accent">
+        <div class="grid grid--2">
+            <div>
+                <h2>Implementation Notes</h2>
+                <ul class="checklist">
+                    <li><span>&#10003;</span> Layer-wise adaptive scaling coefficients derived from structural metrics.</li>
+                    <li><span>&#10003;</span> Constraint enforcement via projected gradient updates.</li>
+                    <li><span>&#10003;</span> Compatible with both pre-training and fine-tuning setups.</li>
+                    <li><span>&#10003;</span> Minimal overhead through low-rank curvature estimators.</li>
+                </ul>
+            </div>
+            <figure class="figure">
+                <img src="c4_config.jpg" alt="C4 dataset configuration diagram" />
+                <figcaption>Example configuration for scaling on the C4 corpus.</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="grid grid--2">
+            <figure class="figure">
+                <img src="common_reason.jpg" alt="Common reasoning improvements chart" />
+                <figcaption>Performance gains on reasoning benchmarks after SAC fine-tuning.</figcaption>
+            </figure>
+            <figure class="figure">
+                <img src="peft.jpg" alt="Parameter-efficient fine-tuning comparison" />
+                <figcaption>SAC complements parameter-efficient fine-tuning strategies.</figcaption>
+            </figure>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>&copy; 2024 SAC Research Collective &middot; Adaptive Learning Rate Scaling with Architectural Constraints</p>
+</footer>
+</body>
+</html>
