@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Preference Tuning with Mixup - MergeMix</title>
+<link rel="stylesheet" href="css/style.css" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Academic Icons for arXiv -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <div class="title-block">
+        <h1 class="site-title">Preference Tuning with Mixup</h1>
+        <p class="subtitle">MergeMix: A Unified Augmentation Paradigm for Visual and Multi-Modal Understanding</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- <section class="panel fade-up">
+        <h2>Preference Tuning Overview</h2>
+        <p>
+          Preference Tuning with Mixup 是 MergeMix 框架中的第二个核心组件，专门针对多模态大语言模型 (MLLM) 的偏好对齐问题。该方法通过构建偏好对并使用排名损失函数进行优化，有效弥合了监督微调 (SFT) 和强化学习 (RL) 之间的差距。
+        </p>
+        
+        <div class="overview-grid">
+          <img src="images/preference-tuning-diagram.png" alt="Preference Tuning Diagram" />
+          <p class="fig-caption">Preference Tuning with Mixup 方法示意图</p>
+        </div>
+      </section>
+
+      <section class="panel fade-up">
+        <h2>Core Concepts</h2>
+        <h3>偏好对构建</h3>
+        <p>
+          该方法的核心思想是利用图像混合技术构建偏好对：
+        </p>
+        <ol>
+          <li><strong>混合样本生成</strong>：使用 Image Mixing 方法生成混合图像</li>
+          <li><strong>偏好对构造</strong>：将混合图像与原始图像组成偏好对，其中原始图像被视为"胜者"，混合图像被视为"败者"</li>
+          <li><strong>SimPO 损失优化</strong>：通过 SimPO (Simple Preference Optimization) 损失函数对模型进行优化</li>
+        </ol>
+
+        <h3>SimPO 损失函数</h3>
+        <p>
+          SimPO 是一种简化的偏好优化方法，相比于传统的 RLHF 方法具有以下优势：
+        </p>
+        <ul>
+          <li><strong>无需奖励模型</strong>：直接基于偏好对进行优化，避免了奖励模型的设计和训练</li>
+          <li><strong>训练稳定性</strong>：相比 RL 方法更加稳定，减少了训练过程中的方差</li>
+          <li><strong>计算效率</strong>：简化了优化过程，提高了训练效率</li>
+        </ul>
+      </section>
+
+      <section class="panel fade-up">
+        <h2>Technical Implementation</h2>
+        <h3>MLLM Pipeline</h3>
+        <div class="overview-grid">
+          <img src="images/merge_pipeline.png" alt="MLLM Pipeline" />
+          <p class="fig-caption">MergeMix 在 MLLM 中的完整流程</p>
+        </div>
+        
+        <h3>详细流程</h3>
+        <ol>
+          <li><strong>视觉编码</strong>：使用视觉模型对偏好对中的图像进行编码，应用 Token Merging 技术</li>
+          <li><strong>文本生成</strong>：LLM 解码器分别为"胜者"和"败者"生成响应文本</li>
+          <li><strong>偏好优化</strong>：通过排名损失函数优化模型参数，使得模型更倾向于生成"胜者"对应的响应</li>
+        </ol>
+      </section> -->
+
+      
+      <section id="results" class="panel fade-up">
+        <h2>Results of MLLM Benchmark</h2>
+        <div class="grid">
+          <img src="images/mllm-llava.png" alt="LLaVA" />
+        </div>
+        <div class="grid">
+          <img src="images/mllm-qwenvl.png" alt="Qwen" />
+        </div>
+      </section>
+
+      <section id="results" class="panel fade-up">
+        <h2>Results of Calibration on MLLMs</h2>
+        <div class="grid">
+          <img src="images/calibration-llava-full.png" alt="Calibration LLaVA" />
+        </div>
+      </section>
+
+      <section id="results" class="panel fade-up">
+        <h2>More Results of MLLM Benchmark</h2>
+        <div class="results-carousel">
+          <button class="carousel-btn prev">&#10094;</button>
+          <div class="carousel-track">
+            <div class="slide-h active">
+              <img src="images/llava-ratios-1.png" alt="LLaVA 1" />
+              <p class="caption">Different token merge ratios of inference comparison results with augmentations. AVG: The average of the nine benchmarks for comprehensive comparison, except for MME.</p>
+            </div>
+            <div class="slide-h">
+              <img src="images/llava-ratios-2.png" alt="LLaVA 2" />
+              <p class="caption">Different token merge ratios of inference comparison results with augmentations. AVG: The average of the nine benchmarks for comprehensive comparison, except for MME.</p>
+            </div>
+            <div class="slide-h">
+              <img src="images/llava-ratios-3.png" alt="LLaVA 3" />
+              <p class="caption">Different token merge ratios of inference comparison results with augmentations. AVG: The average of the nine benchmarks for comprehensive comparison, except for MME.</p>
+            </div>
+          </div>
+          <button class="carousel-btn next">&#10095;</button>
+        </div>
+      </section>
+    </main>
+
+    <div style="text-align: center; margin: 20px 0;">
+      <a class="btn" href="index.html" style="display: inline-block;">Home Page</a>
+    </div>
+
+    <footer class="site-footer">
+      <div>© 2025 MergeMix. Template generated for quick GitHub Pages deployment.</div>
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

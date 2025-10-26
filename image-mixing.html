@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Image Mixing - MergeMix</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Academic Icons for arXiv -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <div class="title-block">
+        <h1 class="site-title">Image Mixing Method</h1>
+        <p class="subtitle">MergeMix: A Unified Augmentation Paradigm for Visual and Multi-Modal Understanding</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- <section class="panel fade-up">
+        <h2>Image Mixing Overview</h2>
+        <p>
+          Image Mixing 是 MergeMix 框架中的第一个核心组件，专注于视觉任务中的数据增强。该方法通过 Token Merging 技术实现高效的图像混合，结合注意力机制和空间上下文信息，生成更具代表性的混合样本。
+        </p>
+        
+        <div class="overview-grid">
+          <img src="images/image-mixing-diagram.png" alt="Image Mixing Diagram" />
+          <p class="fig-caption">Image Mixing 方法示意图</p>
+        </div>
+      </section>
+
+      <section class="panel fade-up">
+        <h2>Technical Details</h2>
+        <h3>Token Merging Process</h3>
+        <p>
+          Image Mixing 的核心在于 Token Merging 过程，该过程包括以下步骤：
+        </p>
+        <ol>
+          <li><strong>ToMe Encoder 处理</strong>：输入图像首先通过 ToMe (Token Merging) 编码器进行处理，该编码器能够有效地减少视觉 Token 的数量，同时保留关键信息。</li>
+          <li><strong>注意力分数恢复</strong>：为了保持混合图像的语义一致性，系统会恢复关键 Token 的注意力分数，确保重要区域的信息不会丢失。</li>
+          <li><strong>TopK 采样</strong>：通过 TopK 采样策略选择最具代表性的 Token，用于生成最终的混合图像。</li>
+        </ol>
+
+        <h3>优势特点</h3>
+        <ul>
+          <li><strong>效率提升</strong>：通过 Token Merging 技术显著减少计算开销，提高训练效率</li>
+          <li><strong>注意力一致性</strong>：保持混合图像中关键区域的注意力一致性，增强模型的泛化能力</li>
+          <li><strong>上下文保留</strong>：在混合过程中保留原始图像的空间上下文信息</li>
+        </ul>
+      </section>
+
+      <section class="panel fade-up">
+        <h2>Implementation</h2>
+        <p>
+          Image Mixing 的实现基于视觉 Transformer 架构，通过以下关键组件实现：
+        </p>
+        <div class="results-grid">
+          <div>
+            <h3>算法流程</h3>
+            <pre><code>1. 输入两张图像 I1 和 I2
+2. 通过 ToMe 编码器获得 Token 表示
+3. 计算注意力分数并进行恢复
+4. 应用 TopK 采样选择关键 Token
+5. 按照混合比例 λ 生成混合图像
+6. 计算对应的混合标签</code></pre>
+          </div>
+          <div>
+            <h3>关键参数</h3>
+            <ul>
+              <li>Merging Ratio: 控制 Token 合并的比例</li>
+              <li>Sampling K: TopK 采样的 K 值</li>
+              <li>Mixing Ratio (λ): 图像混合比例，通常从 Beta 分布采样</li>
+            </ul>
+          </div>
+        </div>
+      </section> -->
+
+      <section id="results" class="panel fade-up">
+        <h2>Results of Image Classification</h2>
+        <!-- <p>定量与定性对比（占位图）：</p> -->
+        <div class="results-carousel">
+          <button class="carousel-btn prev">&#10094;</button>
+          <div class="carousel-track">
+            <div class="slide active">
+              <img src="images/cifar100-results.png" alt="Result 1" />
+              <p class="caption">CIFAR100 dataset classification (part)</p>
+            </div>
+            <div class="slide">
+              <img src="images/cars-results.png" alt="Result 2" />
+              <p class="caption">Stanford-Cars dataset classification</p>
+            </div>
+            <div class="slide">
+              <img src="images/in1k-results.png" alt="Result 3" />
+              <p class="caption">ImageNet-1K dataset classification</p>
+            </div>
+            <div class="slide">
+              <img src="images/cifar100-results-full.png" alt="Result 4" />
+              <p class="caption">CIFAR100 dataset classification (full)</p>
+            </div>
+            <div class="slide">
+              <img src="images/fine-grain-results.png" alt="Result 5" />
+              <p class="caption">CUB200, FGVC-Aircrafts, and Stanford-Cars datasetes classification</p>
+            </div>
+          </div>
+          <button class="carousel-btn next">&#10095;</button>
+        </div>
+      </section>
+
+
+      <section id="calibration" class="panel fade-up">
+        <h2>Results of Calibration on Image</h2>
+        <div class="grid">
+          <img src="images/calibration.png" alt="Calibration 1" />
+          <img src="images/calibration-tab.png" alt="Calibration 2" />
+        </div>
+      </section>
+
+      <section id="occlusion" class="panel fade-up">
+        <h2>Results of Occlusion on Image</h2>
+        <div class="grid">
+          <img src="images/occlusion.png" alt="Occlusion 1" />
+        </div>
+        <div class="results-carousel">
+          <button class="carousel-btn prev">&#10094;</button>
+          <div class="carousel-track">
+            <div class="slide-w active">
+              <img src="images/occlusion-tab-1.png" alt="Occlusion 2" />
+              <p class="caption">Occlusion Classification Results on CIFAR100 dataset with DeiT-Tiny</p>
+            </div>
+            <div class="slide-w">
+              <img src="images/occlusion-tab-3.png" alt="Occlusion 3" />
+              <p class="caption">Occlusion Classification Results on CIFAR100 dataset with ViT-Tiny</p>
+            </div>
+            <div class="slide-w">
+              <img src="images/occlusion-tab-2.png" alt="Occlusion 4" />
+              <p class="caption">Occlusion Classification Results on ImageNet-1K dataset with DeiT-Small</p>
+            </div>
+          </div>
+          <button class="carousel-btn next">&#10095;</button>
+        </div>
+      </section>
+    </main>
+
+    <div style="text-align: center; margin: 20px 0;">
+      <a class="btn" href="index.html" style="display: inline-block;">Home Page</a>
+    </div>
+
+    <footer class="site-footer">
+      <div>© 2025 MergeMix. Template generated for quick GitHub Pages deployment.</div>
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,2 +1,3 @@
-# MergeMix
-A Unified Augmentation Paradigm for Visual and Multi-Modal Understanding
+# MergeMix-Webpage
+
+Link: https://github.com/JinXins/MergeMix_Web/index.html

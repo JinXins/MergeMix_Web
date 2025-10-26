@@ -1,411 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MergeMix: A Unified Augmentation Paradigm for Visual and Multi-Modal Understanding</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MergeMix</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Academic Icons for arXiv -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- Site logo -->
+  <link rel="icon" type="image/png" href="images/westlake.png">
 </head>
 <body>
-<header class="hero">
-    <div class="hero__overlay"></div>
-    <nav class="top-nav">
-        <div class="logo">ScalingOpt</div>
-        <ul class="nav-links">
-            <li><a href="#overview" aria-label="Go to Overview section">Overview</a></li>
-            <li><a href="#insights" aria-label="Go to Highlights section">Highlights</a></li>
-            <li><a href="#architecture" aria-label="Go to Methodology section">Methodology</a></li>
-            <li><a href="#results" aria-label="Go to Results section">Results</a></li>
-            <li><a href="#resources" aria-label="Go to Resources section">Resources</a></li>
-        </ul>
-    </nav>
-    <div class="hero__content">
-        <h1>MergeMix: A Unified Augmentation Paradigm for <u>Visual</u> and <u>Multi-Modal</u> Understanding</h1>
-        <p>
-            A comprehensive overview of MergeMix &mdash; a novelty mixup augmentation for image classification and multi-modal visual
-            understanding via token merge.
-        </p>
-        <a class="cta" href="#overview">Explore the Project</a>
-
-        <div class="hero__meta">
-            <div class="authors-card">
-                <h2>Authors</h2>
-                <div class="authors-grid">
-                    <div class="author-item">
-                        <a href="https://jinxins.github.io" target="_blank" rel="noopener" class="author-link">
-                            <span class="author-name">Xin Jin</span>
-                        </a>
-                        <span class="author-affiliation">Westlake University</span>
-                    </div>
-                    <div class="author-item">
-                        <a href="https://lupin1998.github.io" target="_blank" rel="noopener" class="author-link">
-                            <span class="author-name first-author"><strong>Siyuan Li*</strong></span>
-                        </a>
-                        <span class="author-affiliation">Westlake University & Zhejiang University</span>
-                    </div>
-                    <div class="author-item">
-                        <span class="author-name first-author"><strong>Siyong Jian</strong></span>
-                        <span class="author-affiliation">Westlake University</span>
-                    </div>
-                    <div class="author-item">
-                        <span class="author-name first-author"><strong>Kai Yu</strong></span>
-                        <span class="author-affiliation">Westlake University</span>
-                    </div>
-                    <div class="author-item">
-                        <a href="https://huanwang.tech/" target="_blank" rel="noopener" class="author-link">
-                            <span class="author-name">Huan Wang†</span>
-                        </a>
-                        <span class="author-affiliation">Westlake University</span>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <header class="site-header">
+      <div class="title-block">
+        <h1 class="site-title">MergeMix: A Unified Augmentation Paradigm for Visual and Multi-Modal Understanding</h1>
+        <!-- <p class="subtitle">MergeMix: A Unified Augmentation Paradigm for Visual and Multi-Modal Understanding</p> -->
+      </div>
+      <div class="meta">
+        <div class="authors">
+          <a href="https://scholar.google.com/citations?user=v3OwxWIAAAAJ&hl=zh-CN" target="_blank">Xin Jin</a><sup>1, *</sup>, 
+          <a href="https://scholar.google.com/citations?user=SKTQTXwAAAAJ&hl=zh-CN" target="_blank">Siyuan Li</a><sup>1, 2, *</sup>, 
+          <a href="https://scholar.google.com/citations?user=BodnjL0AAAAJ&hl=zh-CN&oi=ao" target="_blank">Siyong Jian</a><sup>1</sup>, 
+          <a href="https://openreview.net/profile?id=~Kai_Yu12" target="_blank">Kai Yu</a><sup>1</sup>, 
+          <a href="https://scholar.google.com/citations?user=0-On0y4AAAAJ&hl=zh-CN" target="_blank">Huan Wang</a><sup>1, #</sup>
         </div>
-    </div>
-</header>
-
-<main>
-    <section id="resources" class="section section--marine">
-        <div class="section__header">
-            <h2>Resources</h2>
-            <p>Explore the primary publication and supporting materials.</p>
+        <div class="affiliations">
+          1 Westlake University, 
         </div>
-        <div class="resources">
-            <a class="resource-card" href="SAC_paper.pdf" target="_blank" rel="noopener">
-                <h3>📄 Read the Paper</h3>
-                <p>Download the full MergeMix paper (PDF).</p>
-            </a>
-            <a class="resource-card" href="https://arxiv.org/abs/2510.xxxxx" target="_blank" rel="noopener">
-                <h3>📚 arXiv Preprint</h3>
-                <p>Access the latest version on arXiv.</p>
-            </a>
-            <a class="resource-card" href="https://github.com/Westlake-AI/openmixup" target="_blank" rel="noopener">
-                <h3>💻 GitHub Repository</h3>
-                <p>Explore the code and implementation.</p>
-            </a>
-            <a class="resource-card" href="https://github.com/Westlake-AI/openmixup" target="_blank" rel="noopener">
-                <h3>🤗 Hugging Face Models</h3>
-                <p>Pre-trained models and examples.</p>
-            </a>
+        <div class="affiliations">
+          2 Zhejiang University, College of Computer Science and Technology
+        </div>
+        <div class="affiliations">
+          <sup>*</sup> denote equal contribution, <sup>#</sup> denotes corresponding author
         </div>
         
-        <div class="social-links">
-            <h3>Quick Access</h3>
-            <div class="platform-icons">
-                <a href="https://arxiv.org/abs/2304.xxxxx" target="_blank" rel="noopener" class="platform-icon arxiv-icon" aria-label="View on arXiv">
-                    <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-                        <path d="M18.625 5.375h-6.5l-1.5 3h-1.5l-1.5-3h-6.5v13.25h17.5v-13.25zm-8.75 10.5h-3.25v-1.5h3.25v1.5zm0-2.5h-3.25v-1.5h3.25v1.5zm6.5 2.5h-5.25v-1.5h5.25v1.5zm0-2.5h-5.25v-1.5h5.25v1.5z"/>
-                    </svg>
-                    <span>arXiv</span>
-                </a>
-                <a href="https://github.com/sac-optimizer/sac" target="_blank" rel="noopener" class="platform-icon github-icon" aria-label="View on GitHub">
-                    <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-                        <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                    <span>GitHub</span>
-                </a>
-                <a href="https://huggingface.co/sac-optimizer" target="_blank" rel="noopener" class="platform-icon hf-icon" aria-label="View on Hugging Face">
-                    <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
-                    <span>🤗 HF</span>
-                </a>
-            </div>
+        <div class="institution-logos">
+          <img src="images/westlake.png" alt="Westlake University" class="inst-logo">
+          <img src="images/zju-logo.svg" alt="Zhejiang University" class="inst-logo">
+          <img src="images/encode-logo.jpg" alt="EncodeLab" class="inst-logo">
         </div>
-    </section>
+        
+        <div class="links">
+          <a class="btn" href="#">
+            <i class="fas fa-file-pdf"></i> Paper (PDF)
+          </a>
+          <a class="btn" href="#">
+            <i class="fab fa-github"></i> Code
+          </a>
+          <a class="btn" href="#">
+            <img src="images/hf-logo.svg" alt="HuggingFace" class="icon-svg" /> HuggingFace
+          </a>
+          <a class="btn" href="#">
+            <i class="ai ai-arxiv"></i> arXiv
+          </a>
+        </div>
+      </div>
+    </header>
 
-    <section id="overview" class="section">
-        <div class="section__header">
-            <h2>Project Overview</h2>
+    <main>
+      <section class="teaser fade-up">
+        <img src="images/teaser.png" alt="Teaser image" />
+        <p class="fig-caption">Efficiency and performance for MergeMix. (a) The training time vs. accuracy of mixup methods with the DeiT-Small model. (b) The image classification Top-1 accuracy vs. training epochs of different mixup methods on the CIFAR100 dataset with the DeiT-Tiny model. (c) The radar plot of the results on part VQA tasks by LLaVA-7B, LLaVA with SFT, and MergeMix.</p>
+      </section>
+
+      <section id="abstract" class="panel fade-up">
+        <h2>Abstract</h2>
+        <p>
+          Vision–language alignment in multi-modal large language models (MLLMs) typically relies on supervised fine-tuning (SFT) or reinforcement learning (RL). SFT is stable and efficient but requires large-scale human annotations and cannot capture subtle preferences, while RL brings in a reward signal for training, but suffers from overhead and instability. These limitations highlight a trade-off between scalability, robustness, and alignment quality. To address this, we propose MergeMix, a training-time augmentation paradigm that bridges SFT and RL. It first applies an attention-aware image mixing via token merge with more cluster representation and spatial context, and then presents a preference-driven training paradigm for MLLMs by building preference pairs with mixed images and raw images, and optimizing via SimPO loss. As a mixup augmentation, MergeMix enhances attention consistency and efficiency, surpassing other heuristic-based methods in classification. Extensive experiments demonstrate that MergeMix achieves competitive accuracy with improved efficiency, providing a scalable approach to preference alignment in classification and MLLMs.
+        </p>
+      </section>
+
+      <section id="overview" class="panel fade-up">
+        <h2>Method Overview</h2>
+        <div class="overview-grid">
+          <img src="images/overall.png" alt="Overview figure" />
+          <p class="fig-caption">The overall of the two scenarios of MergeMix. (a) MergeMix for Image Classification: The image is processed by the ToMe encoder, with Attention Score Recovery and TopK sampling to generate the corresponding class prediction. (b) MergeMix for MLLM: Preference pairs are encoded by the vision model with token merging, and the LLM decoder generates response text for the loser and winner, optimized via a ranking loss.</p>
+          <div>
+            <p>Multi-modal Large Language Models (e.g., LLaVA, QwenVL, Cambrain-1, etc.) have recently demonstrated remarkable capabilities in integrating visual and textual information, enabling a wide range of applications from visual question answering to multi-modal reasoning. 
+              Since MLLMs are typically pre-trained on massive web-scale datasets, forcing them to possess a wide range of knowledge and general reasoning capabilities, Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL)-based preference optimization have emerged as two primary paradigms for aligning MLLMs with human preferences and specific task requirements. 
+              However, SFT depends on high-quality instruction–response annotations and optimizes the likelihood of reference responses, which does not explicitly model relative preferences between outputs. 
+              RL-based methods such as RLHF are more preference-aware, but they require an additional reward model that may encode bias or be exploited by reward. 
+              Researchers have proposed several advance approaches to address these issues. 
+              We investigate an interesting question: <strong><i>Is it necessary to propose novel techniques rather than some classical machine learning methods in the MLLM scenario?</i></strong>
+            </p>
             <p>
-                SAC (Structural Adaptive Control) introduces architecture-aware learning rate scaling
-                that improves convergence stability for modern transformer-based language models.
+              We revisit the mixup augmentation, which synthesizes mixed samples and corresponding labels with given mixing ratios. However, two main challenges arise:
             </p>
-        </div>
-        <div class="grid grid--2">
-            <article class="card">
-                <h3>Motivation</h3>
-                <p>
-                    Traditional scaling laws overlook how architectural depth, width, and parameter tying
-                    interact with optimization hyperparameters. SAC bridges this gap by injecting
-                    architectural constraints directly into the optimizer&rsquo;s adaptation strategy.
-                </p>
-            </article>
-            <article class="card">
-                <h3>Key Idea</h3>
-                <p>
-                    SAC modulates the learning rate and momentum buffers layer-wise, guided by
-                    curvature proxies derived from attention connectivity and feed-forward expressivity.
-                    This produces smoother loss trajectories and better generalization under compute limits.
-                </p>
-            </article>
-        </div>
-    </section>
-
-    <section id="insights" class="section section--accent">
-        <div class="section__header">
-            <h2>Highlights</h2>
-            <p>Design principles that enable SAC to scale with model size while maintaining stability.</p>
-        </div>
-        <div class="grid grid--3">
-            <article class="highlight">
-                <h3>Architecture-Aware Schedules</h3>
-                <p>
-                    Adaptive scaling coefficients incorporate depth-normalization and residual path
-                    sensitivity, enabling consistent training across diverse transformer sizes.
-                </p>
-            </article>
-            <article class="highlight">
-                <h3>Constraint-Driven Optimization</h3>
-                <p>
-                    Stability constraints, such as Lipschitz bounds on attention maps, guide the optimizer
-                    updates to prevent gradient explosion in deeper blocks.
-                </p>
-            </article>
-            <article class="highlight">
-                <h3>Compute-Efficient Convergence</h3>
-                <p>
-                    SAC achieves faster loss reduction within fixed compute budgets, improving
-                    wall-clock efficiency without sacrificing downstream performance.
-                </p>
-            </article>
-        </div>
-    </section>
-
-    <section id="architecture" class="section">
-        <div class="section__header">
-            <h2>Methodology &amp; Architecture</h2>
+            <ul>
+              <li>Achieving an optimal trade-off between efficiency and performance of mixup augmentations that rely on saliency-based metrics.</li>
+              <li>Extending the augmentation to MLLMs properly, from classical image corruptions to data-dependent samples.</li>
+            </ul>
             <p>
-                The pipeline integrates architectural analysis, optimizer calibration, and constraint-aware
-                scaling to deliver robust training dynamics.
+              Motivated by these perspectives, we propose a novel training framework called <b>MergeMix</b>, which builds preference pairs for MLLM training through data augmentation methods and ranking loss, thereby bridging the gap between SFT and RL.
             </p>
-        </div>
-        <div class="pipeline">
-            <div class="pipeline__step">
-                <span class="step-number">1</span>
-                <h3>Architectural Profiling</h3>
-                <p>
-                    Layer statistics, including attention fan-in and MLP expansion ratios, are collected to
-                    quantify structural sensitivity scores.
-                </p>
-            </div>
-            <div class="pipeline__step">
-                <span class="step-number">2</span>
-                <h3>Constraint Formulation</h3>
-                <p>
-                    Constraints derived from the profiles set allowable ranges for gradient norms and
-                    adaptive learning factors for each block.
-                </p>
-            </div>
-            <div class="pipeline__step">
-                <span class="step-number">3</span>
-                <h3>Adaptive Scaling</h3>
-                <p>
-                    Layer-wise learning rates are scaled using a closed-form estimator that respects the
-                    constraint boundaries to maintain stability.
-                </p>
-            </div>
-            <div class="pipeline__step">
-                <span class="step-number">4</span>
-                <h3>Monitoring &amp; Feedback</h3>
-                <p>
-                    Training telemetry feeds back into the estimator to refine scaling coefficients during
-                    the optimization horizon.
-                </p>
-            </div>
-        </div>
-
-        <figure class="figure">
-            <img src="sac_pipeline.jpg" alt="SAC optimization pipeline diagram" />
-            <figcaption>Figure 1. SAC training pipeline with architecture-informed feedback loops.</figcaption>
-        </figure>
-    </section>
-
-    <section class="section section--marine">
-        <div class="grid grid--2">
-            <figure class="figure">
-                <img src="modern_llm_opt.jpg" alt="Modern LLM optimization landscape" />
-                <figcaption>Figure 2. Positioning SAC among modern LLM optimization strategies.</figcaption>
-            </figure>
-            <div class="text-block">
-                <h2>Optimizer Design Plane</h2>
-                <p>
-                    SAC operates at the intersection of architecture-aware scaling, optimizer state reuse,
-                    and compute-efficient scheduling. By balancing these objectives, SAC delivers more
-                    reliable convergence curves across a wide range of parameter counts.
-                </p>
-                <p>
-                    The method adapts to both pre-training and fine-tuning regimes, aligning gradient flow
-                    with structural priors such as attention locality and residual gating.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="results" class="section">
-        <div class="section__header">
-            <h2>Experimental Highlights</h2>
-            <p>Representative results comparing SAC with common adaptive optimizers.</p>
-        </div>
-        <div class="results">
-            <div class="results-table-container">
-                <h3>Optimizer Performance Comparison</h3>
-                <table aria-label="Optimizer comparison table">
-                    <thead>
-                    <tr>
-                        <th>Model Scale</th>
-                        <th>Baseline Optimizer</th>
-                        <th>Loss Improvement</th>
-                        <th>Perplexity Improvement</th>
-                        <th>Compute Savings</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1.3B parameters</td>
-                        <td>AdamW</td>
-                        <td class="improvement-cell">↓ 8.5%</td>
-                        <td class="improvement-cell">↓ 6.2%</td>
-                        <td class="compute-cell">1.15× faster</td>
-                    </tr>
-                    <tr>
-                        <td>7B parameters</td>
-                        <td>Adafactor</td>
-                        <td class="improvement-cell">↓ 10.4%</td>
-                        <td class="improvement-cell">↓ 7.8%</td>
-                        <td class="compute-cell">1.22× faster</td>
-                    </tr>
-                    <tr>
-                        <td>13B parameters</td>
-                        <td>Shampoo</td>
-                        <td class="improvement-cell">↓ 12.1%</td>
-                        <td class="improvement-cell">↓ 9.5%</td>
-                        <td class="compute-cell">1.31× faster</td>
-                    </tr>
-                    <tr>
-                        <td>65B parameters</td>
-                        <td>Muon</td>
-                        <td class="improvement-cell">↓ 9.7%</td>
-                        <td class="improvement-cell">↓ 8.9%</td>
-                        <td class="compute-cell">1.18× faster</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <aside class="note">
-                    <h4>Key Insights</h4>
-                    <p>
-                        SAC consistently outperforms baseline adaptive optimizers by injecting architectural
-                        priors into the scaling schedule. The improvements are especially pronounced for
-                        mid-sized transformer models where depth-to-width ratios amplify gradient instabilities.
-                    </p>
-                </aside>
-            </div>
-        </div>
-
-        <div class="table-wrapper">
-            <h3>Ablation Study: Constraint Weight Sensitivity</h3>
-            <div class="table-scroll">
-                <table aria-label="Constraint weight ablation table">
-                    <thead>
-                    <tr>
-                        <th>Constraint Weight</th>
-                        <th>Stability Index <span style="font-weight: 400;">(↑ better)</span></th>
-                        <th>Validation Loss</th>
-                        <th>Tokens to Converge (B)</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>0.0 <em>(No Constraints)</em></td>
-                        <td>0.62</td>
-                        <td>2.41</td>
-                        <td>310</td>
-                    </tr>
-                    <tr>
-                        <td>0.2</td>
-                        <td class="improvement-cell">0.78</td>
-                        <td class="improvement-cell">2.18</td>
-                        <td class="improvement-cell">268</td>
-                    </tr>
-                    <tr>
-                        <td>0.4</td>
-                        <td class="improvement-cell">0.84</td>
-                        <td class="improvement-cell">2.05</td>
-                        <td class="improvement-cell">241</td>
-                    </tr>
-                    <tr style="background: rgba(96, 165, 250, 0.1); font-weight: 600;">
-                        <td>0.6 <em>(Optimal)</em></td>
-                        <td class="improvement-cell">0.86</td>
-                        <td class="improvement-cell">2.02</td>
-                        <td class="improvement-cell">236</td>
-                    </tr>
-                    <tr>
-                        <td>0.8</td>
-                        <td>0.85</td>
-                        <td>2.07</td>
-                        <td>244</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="table-note">
-                <strong>Note:</strong> Stability index measures gradient variance regularity across depth-normalized layers. 
-                The optimal constraint weight (0.6) provides the best balance between stability and convergence speed.
+            <ul>
+              <li>
+                <strong>Image Mixing:</strong> 
+                A novel data augmentation that generates mixed samples through <u>token merge</u> techniques. A bipartite soft matching (BSM) gathers the similarity information that brings the context, making the mask retain useful features. Meanwhile, MergeMix links the merge ratio and mixing ratio, aligning the information density of samples, enabling precise mixing data generation.
+              </li>
+              <li>
+                <strong>Preference Tuning with Mixup:</strong> 
+                A preference-driven SFT paradigm for MLLMs, where augmented samples are regarded as non-preferred responses <u>Loser</u> and clean samples as preferred responses <u>Winner</u>. This enables preference optimization via SimPO loss without relying on reward models.
+            </ul>
+            <p>
+              You could chlick the buttons to see the details of image mixing and preference tuning with mixup.
             </p>
-        </div>
-
-        <div class="gallery">
-            <figure>
-                <img src="sac.jpg" alt="SAC concept illustration" />
-                <figcaption>Conceptual overview of SAC&rsquo;s adaptive scaling mechanism.</figcaption>
-            </figure>
-            <figure>
-                <img src="sac_config.jpg" alt="Configuration space visualization" />
-                <figcaption>Configuration space showing SAC&rsquo;s constraint-aware adaptation.</figcaption>
-            </figure>
-            <figure>
-                <img src="optimizer_design_plane.jpg" alt="Optimizer design plane chart" />
-                <figcaption>Design plane highlighting SAC&rsquo;s balance between speed and stability.</figcaption>
-            </figure>
-        </div>
-    </section>
-
-    <section class="section section--accent">
-        <div class="grid grid--2">
-            <div>
-                <h2>Implementation Notes</h2>
-                <ul class="checklist">
-                    <li><span>&#10003;</span> Layer-wise adaptive scaling coefficients derived from structural metrics.</li>
-                    <li><span>&#10003;</span> Constraint enforcement via projected gradient updates.</li>
-                    <li><span>&#10003;</span> Compatible with both pre-training and fine-tuning setups.</li>
-                    <li><span>&#10003;</span> Minimal overhead through low-rank curvature estimators.</li>
-                </ul>
+            <div class="method-buttons">
+              <a class="btn" href="image-mixing.html">Image Mixing</a>
+              <a class="btn" href="preference-tuning.html">Preference Tuning with Mixup</a>
             </div>
-            <figure class="figure">
-                <img src="c4_config.jpg" alt="C4 dataset configuration diagram" />
-                <figcaption>Example configuration for scaling on the C4 corpus.</figcaption>
-            </figure>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <section class="section">
-        <div class="grid grid--2">
-            <figure class="figure">
-                <img src="common_reason.jpg" alt="Common reasoning improvements chart" />
-                <figcaption>Performance gains on reasoning benchmarks after SAC fine-tuning.</figcaption>
-            </figure>
-            <figure class="figure">
-                <img src="peft.jpg" alt="Parameter-efficient fine-tuning comparison" />
-                <figcaption>SAC complements parameter-efficient fine-tuning strategies.</figcaption>
-            </figure>
+      
+      <section id="visualization" class="panel fade-up">
+        <h2>Visualization of MergeMix</h2>
+        <p>
+          We provide visualizations of MergeMix on both MLLM case study and mixed images with different mixing ratios.
+        </p>
+        <h3>MLLM Case Study</h3>
+        <div class="grid">
+          <img src="images/mllm-case.png" alt="Case Study" />
         </div>
-    </section>
-</main>
+        <h3>Mixed Images</h3>
+        <div class="grid">
+          <img src="images/mixed-samples.png" alt="MLLM 1" />
+        </div>
+      </section>
 
-<footer class="footer">
-    <p>&copy; 2025 MergeMix Research Collective &middot</p>
-</footer>
+      <!-- BibTeX -->
+      <section id="bibtex" class="panel fade-up">
+        <h2>BibTeX</h2>
+        <div class="bibtex-container">
+          <pre class="bibtex">@article{jin2025mergemix,
+         title = {MergeMix: A Unified Augmentation Paradigm for Visual and Multi-Modal Understanding},
+         author = {Jin, Xin and Li, Siyuan and Jian, Siyong and Yu, Kai and Wang, Huan},
+         year = {2025},
+         journal = {arXiv preprint arXiv:xxxxx}
+}
+          </pre>
+          <button class="copy-btn" onclick="copyBibtex()">Copy</button>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div>© 2025 MergeMix. Template generated for quick GitHub Pages deployment.</div>
+    </footer>
+  </div>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
