@@ -1,3 +1,3 @@
-# MergeMix-Webpage
+# MergeMixWebpage
 
-Link: https://github.com/JinXins/MergeMix_Web/index.html
+**Link:** https://jinxins.github.io/MergeMix_Web/
