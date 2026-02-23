@@ -322,3 +322,29 @@ body{
     height: 350px; /* 在小屏幕上减小高度 */
   }
 }
+
+/* Mathematical formulas styling */
+.formula {
+  text-align: center;
+  margin: 6px 0;
+  padding: 3px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 5px;
+  border-left: 4px solid #3b82f6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formula .MathJax {
+  font-size: 1.1em !important;
+}
+
+/* Ensure MathJax renders properly */
+.MathJax_Display {
+  text-align: center !important;
+  margin: 1em 0 !important;
+}
+
+/* Inline math styling */
+.MathJax {
+  display: inline-block !important;
+}
