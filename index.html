@@ -59,7 +59,9 @@
     <main>
       <section class="teaser fade-up">
         <img src="images/teaser.png" alt="Teaser image" />
-        <p class="fig-caption">Efficiency and performance for MergeMix. (a) The training time vs. accuracy of mixup methods with the DeiT-Small model. (b) The image classification Top-1 accuracy vs. training epochs of different mixup methods on the CIFAR100 dataset with the DeiT-Tiny model. (c) The radar plot of the results on part VQA tasks by LLaVA-7B, LLaVA with SFT, and MergeMix.</p>
+        <p class="fig-caption" style="text-align: justify; text-align-last: center; line-height: 1.6; margin: 0; padding: 0 20px;">
+          Efficiency and performance for MergeMix. (a) The training time vs. accuracy of mixup methods with the DeiT-Small model. (b) The image classification Top-1 accuracy vs. training epochs of different mixup methods on the CIFAR100 dataset with the DeiT-Tiny model. (c) The radar plot of the results on part VQA tasks by LLaVA-7B, LLaVA with SFT, and MergeMix.
+        </p>
       </section>
 
       <section id="abstract" class="panel fade-up">
@@ -73,7 +75,9 @@
         <h2>Method Overview</h2>
         <div class="overview-grid">
           <img src="images/overall.png" alt="Overview figure" />
-          <p class="fig-caption">The overall of the two scenarios of MergeMix. (a) MergeMix for Image Classification: The image is processed by the ToMe encoder, with Attention Score Recovery and TopK sampling to generate the corresponding class prediction. (b) MergeMix for MLLM: Preference pairs are encoded by the vision model with token merging, and the LLM decoder generates response text for the loser and winner, optimized via a ranking loss.</p>
+          <p class="fig-caption" style="text-align: justify; text-align-last: center; line-height: 1.6; margin: 0; padding: 0 20px;">
+            The overall of the two scenarios of MergeMix. (a) MergeMix for Image Classification: The image is processed by the ToMe encoder, with Attention Score Recovery and TopK sampling to generate the corresponding class prediction. (b) MergeMix for MLLM: Preference pairs are encoded by the vision model with token merging, and the LLM decoder generates response text for the loser and winner, optimized via a ranking loss.
+          </p>
           <div>
             <p>Multi-modal Large Language Models (e.g., LLaVA, QwenVL, Cambrain-1, etc.) have recently demonstrated remarkable capabilities in integrating visual and textual information, enabling a wide range of applications from visual question answering to multi-modal reasoning. 
               Since MLLMs are typically pre-trained on massive web-scale datasets, forcing them to possess a wide range of knowledge and general reasoning capabilities, Supervised Fine-Tuning (SFT) and Reinforcement Learning (RL)-based preference optimization have emerged as two primary paradigms for aligning MLLMs with human preferences and specific task requirements. 
